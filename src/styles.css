@@ -1,0 +1,55 @@
+/* Application-wide Styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap');
+
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+h2, h3 {
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+body {
+  margin: 2em;
+}
+body, input[type="text"], button {
+  color: #333;
+  font-family: Cambria, Georgia;
+}
+/* everywhere else */
+* {
+  font-family: 'Rajdhani', sans-serif
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.gauge-chart {
+  margin:auto;
+  width:100% !important;
+}
+
+#needle-style svg > path:nth-child(5) {
+  /*transform: translate(150,120) !important;*/
+
+  /*stroke-opacity:1% !important;*/
+  stroke-width: 7 !important;
+
+  /*stroke: #ffffff;*/
+  stroke-linecap: round;
+  /*stroke-linejoin: round;*/
+
+
+
+  /*-webkit-text-stroke-width: 10px !important;*/
+  /*transform-origin: 50% 50% !important;*/
+  /*stroke-dashoffset:s 1 !important;*/
+  /*width:30% !important;*/
+  /*height:30% !important*/
+  /*transform: scale(1);*/
+ /*d: path('M36.99114591877827,-72.59921159086822L-4.989636535454861,-2.5423467985414625L-2.5423467985414625,4.989636535454861L4.989636535454861,2.5423467985414625L36.99114591877827,-72.59921159086822');*/
+}
