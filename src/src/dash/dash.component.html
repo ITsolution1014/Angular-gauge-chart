@@ -1,0 +1,173 @@
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class = "modal-body">
+          <p class = "custom-modal-content">ךיראתב היצקאר םויס התהיז תכרעמה
+          <br><br>
+          ?ןיקת יוהיזה םאה .{{real_time}} העש {{date_day}} בסבירות של   {{reaction_assurance}}</p>
+        <div style="display: flex;justify-content: center">
+          <button (click) = "nobtn()" class = "btn custom-modal-button">אל</button>
+          <button (click) = "yesbtn()" class = "btn custom-modal-button">ןכ</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="endReaction" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class = "modal-header">
+      {{reaction_assurance}}
+    </div>
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <div class = "modal-body">
+        <p class = "custom-modal-content">ךיראתב היצקאר םויס התהיז תכרעמה
+          <br><br>
+          ?ןיקת יוהיזה םאה .{{real_time}} העש {{date_day}} בסבירות של   {{reaction_assurance}}</p>
+        <div style="display: flex;justify-content: center">
+          <button (click) = "endnobtn()" class = "btn custom-modal-button">אל</button>
+          <button (click) = "endyesbtn()" class = "btn custom-modal-button">ןכ</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="grid-container">
+
+  <div class = "logo">
+      <img src = "./assets/logo.svg" class = "logo-img" width="120">
+
+      <img src = "./assets/mark.jpg" class = "mark-img" width="60">
+  </div>
+  <h1 class = "content-title">102 רוטקאיר – היצקאר ףוס יוהיז</h1>
+  <mat-grid-list cols="10" rowHeight="250PX">
+    <mat-grid-tile [colspan]="( cards | async )?.one.cols" [rowspan]="( cards | async )?.one.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            <h1 class = "card-title">ןועש</h1>
+            <h1 class = "card-sub-title">ביצי עבצה ןמז המכ</h1>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class = "card-time">
+              <P style = "font-family: 'Rajdhani', sans-serif;">{{reaction_duration_time}}</P>
+          </div>
+          <mat-progress-bar mode="determinate" color = #ffffff [value] =percentage ></mat-progress-bar>
+
+
+        </mat-card-content>
+
+        <mat-card-footer>
+          <p class = "card-footer-content">{{prediction_text}}</p>
+        </mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="( cards | async )?.two.cols" [rowspan]="( cards | async )?.two.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            <h1 class = "card-title">היצקאיר</h1>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content ">
+          <rg-gauge-chart
+            [canvasWidth]="canvasWidth"
+            [needleValue]="needleValue"
+            [centralLabel]="centralLabel"
+            [options]="options"
+            >
+          </rg-gauge-chart>
+          <div class="check-div">
+            <rg-gauge-chart id = "needle-style"
+                            [canvasWidth]="canvasWidth1"
+                            [needleValue]="needleValue1"
+                            [centralLabel]="centralLabel1"
+                            [options]="options1"
+            >
+            </rg-gauge-chart>
+
+            <div class = "check-success1">
+            </div>
+            <div class = "check-success">
+            </div>
+          </div>
+          <div class="check-div2">
+            <div class = "check-success2">
+              <img src="./assets/check-white.svg" width="45" class = "check-div-img2">
+            </div>
+          </div>
+          <div  class = "hr-style"></div>
+        </mat-card-content>
+        <mat-card-footer>
+          <div class = "card-footer3">
+            <div class = "card-footer3-one">
+              <p class = "card-footer3-title">םויסל זוחא </p>
+              <p class = "card-footer3-needle">{{percentage}}%</p>
+            </div>
+            <div class = "hr-style-h"></div>
+            <div class = "card-footer3-one">
+              <div class = "card-footer3-title">{{last_reaction_found_time}}</div>
+              <div class = "cal-dot">
+<!--                <div class = "dot-style"></div>-->
+                <p class = "card-footer-cal">{{tmp}}</p>
+              </div>
+              <div class = "card-footer-sub3">
+                <p class = "footer-sub3"> התהיז תכרעמה
+                  תוקד 5 ךשמל עבצ תוביצי</p>
+              </div>
+            </div>
+          </div>
+        </mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="( cards | async )?.three.cols" [rowspan]="( cards | async )?.three.rows">
+      <mat-card class="dashboard-card3">
+        <mat-card-header>
+          <mat-card-title>
+            <h1 class = "card-title">רוטקאירב עבצ</h1>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div class = "card3-circle " [style] = "color"></div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="( cards | async )?.four.cols" [rowspan]="( cards | async )?.four.rows">
+      <mat-card class="dashboard-card4">
+        <mat-card-header>
+          <mat-card-title style ="margin-bottom:4px">
+            <h1 class = "card-title4">המלצמ</h1>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+            <img src = "{{img_path}}" width="75" class = "circle-img">
+          <div class="hr-style-min"></div>
+        </mat-card-content>
+        <mat-card-footer class = "card-footer-content4">
+          <p class ="footer-time" >{{real_time}}</p>
+          <p class = "footer-sub">2020 ילויל 07 ,ישילש םוי</p>
+        </mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <h3 class="dashboard-version">2.2 הסרג</h3>
+  <div id = "svg-tmp">
+    <svg>
+      <defs>
+        <linearGradient id="gradient">
+          <stop offset="10%" stop-color="#d1d5ff" />
+          <stop offset="30.12%" stop-color="#93BEFA" />
+          <stop offset="93.41%" stop-color="#1E2999" />
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+</div>
